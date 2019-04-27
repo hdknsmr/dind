@@ -1,0 +1,12 @@
+
+defutf8 on
+defencoding utf8
+encoding utf8 utf8
+
+escape ^Jj
+
+defbce on
+term xterm-256color
+
+shell bash
+

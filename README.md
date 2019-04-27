@@ -7,7 +7,7 @@ The image is also worked on Windows 10 Pro (Docker for Windows), because the Lin
 
 example of docker run:
 
-    $ docker run -it -v /var/run/docker.sock:/var/run/docker.sock -v /root/mnt:/root/mnt hdknsmr/dind:1.24.0
+    $ docker run -it -v /var/run/docker.sock:/var/run/docker.sock -v /root/mnt:/root/mnt hdknsmr/dind:latest
     
 ## Sharing volumes
 

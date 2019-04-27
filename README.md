@@ -12,7 +12,7 @@ example of docker run:
 ## Sharing volumes
 
 Sometimes "docker run" wants to mount file systems.
-So You should put "-v" option with the same names, ex) "/root/mnt:/root/mnt" to run the image, so that "docker run" in the container of it can use "-v" option natunally to the second container  which is started by the first container.
+So you should put "-v" option with the same names, ex) "/root/mnt:/root/mnt" to run the image, so that "docker run" in the container of it can use "-v" option natunally to the second container  which is started by the first container.
 
 ## Trivials
 ### .docker/config.json

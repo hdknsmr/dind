@@ -2,7 +2,7 @@ version: "3"
 services:
   docker-shell:
     build: .
-    image: hdknsmr/dind:1.24
+    image: docker-shell:1.24
     container_name: docker-shell
     stdin_open: true
     tty: true

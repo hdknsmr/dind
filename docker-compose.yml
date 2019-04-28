@@ -8,5 +8,12 @@ services:
     tty: true
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
-      - "/root/mnt:/root/mnt"
+      - "docker-shell-home:/home"
+      - "docker-shell-share:/tmp/mnt"
+
+volumes:
+  docker-shell-share:
+    external: true
+  docker-shell-home:
+    external: true
 

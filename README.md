@@ -16,7 +16,7 @@ example of docker run:
 Sometimes "docker run" wants to mount file systems.
 So you should put "-v" option with the same names, ex) "/root/mnt:/root/mnt" to run the image, so that "docker run" in the container of it can use "-v" option natunally to the second container  which is started by the first container.
 
-You can also use external volumes for this purpose.
+You can also use an external volume for this purpose.
 
     $ docker volume create docker-shell-share
     $ docker run -it -v docker-shell-share:/root/mnt -v /var/run/docker.sock:/var/run/docker.sock hdknsmr/dind:latest

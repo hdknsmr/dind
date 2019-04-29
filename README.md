@@ -3,24 +3,33 @@
 This is a CentOS-based Docker-in-Docker image including *docker-compose* command.
 
 Assuming file mount of */var/run/docker.sock*, the host must have docker functionality. 
-The image is also worked on Windows 10 Pro (Docker for Windows), because the Linux on the Hyper-V runs a docker with the same name of unix socket above.
+The image also works on Windows 10 Pro (Docker for Windows), because the Linux on the Hyper-V runs a docker with the same name of unix socket above.
 
 example of docker run:
 
-    $ docker run -it -v /root/mnt:/root/mnt -v /var/run/docker.sock:/var/run/docker.sock hdknsmr/dind:latest
-     (and then, in the container...)
-    $ docker run -it -v /root/mnt:/root/mnt the-sedond-container
+    $ docker run -it -v /var/run/docker.sock:/var/run/docker.sock hdknsmr/dind:latest
     
 ## Sharing volumes
 
-Sometimes "docker run" wants to mount file systems.
-So you should put "-v" option with the same names, ex) "/root/mnt:/root/mnt" to run the image, so that "docker run" in the container of it can use "-v" option natunally to the second container  which is started by the first container.
+Sometimes "docker run" should mount file systems.
+In this case, you should put "-v" option with the two same names, ex) "/root/mnt:/root/mnt" to run the image, so that "docker run" invoked in the container can use "-v" option natunally to the second container which will be started by the first container.
+
+    $ docker run -it -v /root/mnt:/root/mnt -v /var/run/docker.sock:/var/run/docker.sock hdknsmr/dind:latest
+
+and then, in the container...
+    
+    $ docker run -it -v /root/mnt:/root/mnt the-sedond-container
+
+In Windows system this also does work, but note that /root/mnt is NOT on *Windows-side*,
+but on *Linux-side (Hyper-V)*. That may be difficult to manage, so it may be a better way to use an external volume, as follows.
 
 You can also use an external volume for this purpose.
 
     $ docker volume create docker-shell-share
     $ docker run -it -v docker-shell-share:/root/mnt -v /var/run/docker.sock:/var/run/docker.sock hdknsmr/dind:latest
-     (and then, in the container...)
+
+and then, in the container...
+    
     $ docker run -it -v docker-shell-share:/root/mnt the-sedond-container
 
 ## Others

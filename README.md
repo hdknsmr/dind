@@ -21,7 +21,7 @@ and then, in the container...
     $ docker run -it -v /root/mnt:/root/mnt the-sedond-container
 
 In Windows system this also does work, but note that /root/mnt is NOT on *Windows-side*,
-but on *Linux-side (Hyper-V)*. That may be difficult to manage, so a better way is to use an external volume, as follows.
+but on *Linux-side (Hyper-V)*. That folder may be difficult to manage and easy to be lost, so a better way is to use an external volume, as follows.
 
 You can also use an external volume for this purpose.
 
